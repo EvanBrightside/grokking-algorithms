@@ -1,3 +1,5 @@
+# https://en.wikipedia.org/wiki/Quicksort
+# https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort
 module Sort
   def self.quick_sort(list)
     return list if list.size < 2  # Base case: arrays with 0 or 1 elemente are already sorted
@@ -10,8 +12,9 @@ module Sort
   end
 end
 
-# O(n log n) best-case scenario
+# Ω(n log(n)) best-case scenario
 # O(n^2) worst-case scenario
+# Θ(n log(n)) average-case scenario
 
 # Exercises
 # How long would each of these operations take in Big O notation?

@@ -22,4 +22,6 @@ module Sort
   end
 end
 
-## O(n^2)
+# Ω(n^2) best-case scenario
+# O(n^2) worst-case scenario
+# Θ(n^2) average-case scenario
