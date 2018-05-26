@@ -8,7 +8,6 @@ module Search
 
     while low <= high                # While you haven't narrowed it down to one element
       mid = (low + high) / 2         # Check the middle element
-      puts "mid: #{mid}"
       guess = list[mid]
 
       return mid if guess == item    # Found the item
