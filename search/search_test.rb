@@ -1,7 +1,8 @@
 require 'minitest/autorun'
 require_relative 'binary_search'
-require_relative 'recursive_binary_search'
 require_relative 'breadth_first_search'
+require_relative 'dijkstra_search'
+require_relative 'recursive_binary_search'
 
 class TestSearch < Minitest::Test
   def test_binary_search
@@ -21,17 +22,27 @@ class TestSearch < Minitest::Test
   end
 
   def test_breadth_first_search
-    list = {
-      'you' => %w[alice bob clarie],
-      'bob' => %w[anuj peggy],
-      'alice' => %w[peggy],
-      'clarie' => %w[thom jonny],
-      'anuj' => %w[],
-      'peggy' => %w[],
-      'thom' => %w[],
-      'jonny' => %w[]
+    graph = {
+      you: %i[alice bob clarie],
+      bob: %i[anuj peggy],
+      alice: %i[peggy],
+      clarie: %i[thom jonny],
+      anuj: %i[],
+      peggy: %i[],
+      thom: %i[],
+      jonny: %i[]
     }
     condition = proc { |name| name[-1] == 'm' }
-    assert_equal(true, Search.breadth_first_search(list, condition))
+    assert_equal(true, Search.breadth_first_search(graph, condition))
+  end
+
+  def test_dijkstra_search
+    graph = {
+      start: { a: 6, b: 2 },
+      a: { fin: 1 },
+      b: { a: 3, fin: 5 },
+      fin: {}
+    }
+    assert_equal(6, Search.dijkstra_search(graph, :start, :fin))
   end
 end
